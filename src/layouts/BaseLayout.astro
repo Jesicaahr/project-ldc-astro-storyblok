@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 ---
 
@@ -9,8 +10,9 @@ import Header from "../components/Header.astro";
     <link rel="icon" type="image/svg+xml" href="/logo-ldc.png" />
     <title>Long Distance Creator</title>
   </head>
-  <body class="container mx-auto">
+  <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>

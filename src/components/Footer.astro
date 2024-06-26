@@ -1,0 +1,31 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import { Icon } from "astro-iconify";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/config", {
+  version: "draft",
+  resolve_links: "url",
+});
+
+const FooterSocmed = data?.story?.content?.footerSocmed;
+---
+
+<header class="w-full h-24 bg-[#f7f6fd]">
+  <div class="container h-full mx-auto flex items-center justify-between">
+    <nav>
+      <ul class="flex space-x-8 text-lg font-bold">
+        {
+          FooterSocmed.map((menu) => (
+            <li>
+              <a href={`${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
+                <Icon class="size-5 text-indigo-900" name={menu.icon.icon} />{" "}
+                {menu.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
