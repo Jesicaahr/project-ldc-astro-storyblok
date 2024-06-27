@@ -6,25 +6,19 @@ const { blok } = Astro.props;
 let dynamicHeroClass = blok.layout === "constrained" ? "container mx-auto" : "";
 ---
 
-<div
-  {...storyblokEditable(blok)}
-  class={`${dynamicHeroClass} min-h-[500px] relative flex items-end justify-center my-6 rounded-[5px] overflow-hidden`}
->
-  <div
-    class="relative z-10 w-full text-center bg-gradient-to-t from-black/70 via-black/50 to-transparent py-6"
-  >
-    <h1 class="text-6xl text-white font-bold mb-3">
-      {blok.headline}
-    </h1>
-    <h2 class="text-4xl text-white font-bold">
-      {blok.subheadline}
-    </h2>
-  </div>
+<div  {...storyblokEditable(blok)} class={`${dynamicHeroClass} flex flex-col items-center my-6`}>
   <Image
-    src={blok.background_image.filename}
-    alt={blok.background_image.alt}
-    width="200"
-    height="150"
-    class="absolute top-0 left-0 z-0 w-full h-auto object-cover"
+  src={blok.background_image.filename}
+  alt={blok.background_image.alt}
+  width="200"
+  height="150"
+  class=" w-[40vw] h-auto object-cover"
   />
+  <h1 class="text-6xl text-text-primary text-center font-sans leading-tight font-semibold my-6  w-[70vw]">
+    {blok.headline}
+  </h1>
+  <h2 class="text-2xl text-text-secondary text-center font-display  w-[70vw]">
+    {blok.subheadline}
+  </h2>
+
 </div>
