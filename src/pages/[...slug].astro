@@ -1,16 +1,16 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { PageData } from "@base/page-types-sb";
 
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi();
-  const { data } = await storyblokApi.get("cdn/links", {
+  const { data }: { data: PageData } = await storyblokApi.get("cdn/links", {
     version: "draft",
   });
 
-  let links = data.links;
-  links = Object.values(links);
+  const links = Object.values(data.links);
 
   return links.map((link) => {
     return {

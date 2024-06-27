@@ -1,9 +1,10 @@
 ---
-import ArticleCard from "../components/ArticleCard.astro";
+import ArticleCard from "@components/ArticleCard.astro";
 import { storyblokEditable } from "@storyblok/astro";
+import type { ArticleStoryblok } from "@base/component-types-sb";
 
 const { blok } = Astro.props;
-let articles = blok.articles;
+let articles: ArticleStoryblok[] = blok.articles;
 ---
 
 <section class="mx-6 my-12" {...storyblokEditable(blok)}>

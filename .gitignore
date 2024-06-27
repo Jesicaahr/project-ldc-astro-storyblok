@@ -22,3 +22,5 @@ pnpm-debug.log*
 
 # Visual Studio Code
 .vscode
+
+components.*.json

@@ -1,5 +1,6 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
+import type { MenuLinkStoryblok } from "@base/component-types-sb";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/config", {
@@ -7,7 +8,7 @@ const { data } = await storyblokApi.get("cdn/stories/config", {
   resolve_links: "url",
 });
 
-const HeaderMenu = data?.story?.content?.header_menu;
+const HeaderMenu: MenuLinkStoryblok[] = data?.story?.content?.headerMenu;
 ---
 
 <header class="w-full h-24 bg-[#f7f6fd]">
@@ -18,7 +19,7 @@ const HeaderMenu = data?.story?.content?.header_menu;
     <nav>
       <ul class="flex space-x-8 text-lg font-bold">
         {
-          HeaderMenu.map((menu) => (
+          HeaderMenu.map((menu: MenuLinkStoryblok) => (
             <li>
               <a href={`${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
                 {menu.link.story.name}

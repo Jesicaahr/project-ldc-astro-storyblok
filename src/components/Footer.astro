@@ -1,6 +1,7 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
 import { Icon } from "astro-iconify";
+import type { FooterSocmedLinkStoryblok } from "@base/component-types-sb";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/config", {
@@ -8,7 +9,8 @@ const { data } = await storyblokApi.get("cdn/stories/config", {
   resolve_links: "url",
 });
 
-const FooterSocmed = data?.story?.content?.footerSocmed;
+const FooterSocmed: FooterSocmedLinkStoryblok[] =
+  data?.story?.content?.footerSocmed;
 ---
 
 <header class="w-full h-24 bg-[#f7f6fd]">
@@ -16,7 +18,7 @@ const FooterSocmed = data?.story?.content?.footerSocmed;
     <nav>
       <ul class="flex space-x-8 text-lg font-bold">
         {
-          FooterSocmed.map((menu) => (
+          FooterSocmed.map((menu: FooterSocmedLinkStoryblok) => (
             <li>
               <a href={`${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
                 <Icon class="size-5 text-indigo-900" name={menu.icon.icon} />{" "}

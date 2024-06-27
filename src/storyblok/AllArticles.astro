@@ -1,6 +1,7 @@
 ---
 import { storyblokEditable, useStoryblokApi } from "@storyblok/astro";
-import ArticleCard from "../components/ArticleCard.astro";
+import ArticleCard from "@components/ArticleCard.astro";
+import type { ArticleStoryblok } from "@base/component-types-sb";
 
 const { blok } = Astro.props;
 
@@ -11,7 +12,7 @@ const { data } = await storyblokApi.get(`cdn/stories`, {
   is_startpage: false,
 });
 
-const articles = data.stories;
+const articles: ArticleStoryblok[] = data.stories;
 ---
 
 <section class="mx-6 my-12" {...storyblokEditable(blok)}>
