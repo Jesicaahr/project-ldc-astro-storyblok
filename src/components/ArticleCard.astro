@@ -4,19 +4,19 @@ import { Image } from "astro:assets";
 const { article } = Astro.props;
 ---
 
-<article class="column feature bg-gray-100 rounded">
+<article class="column feature rounded">
   <Image
     src={`${article.image.filename}/m/360x240`}
     alt={article.image.alt}
     width="200"
     height="150"
-    class="object-cover object-center w-full lg:h-48 md:h-36 rounded"
+    class="object-cover object-center w-full aspect-square lg:h-48 md:h-36 rounded"
   />
-  <div class="p-4">
-    <h1 class="text-2xl font-semibold lg:text-3xl">
+  <div class="">
+    <h1 class="text-lg font-semibold font-display my-3 lg:text-xl">
       {article.title}
     </h1>
-    <p class="leading-relaxed text-gray-700 line-clamp-2 my-4">
+    <p class="leading-relaxed text-gray-700 line-clamp-2 my-3">
       {article.teaser}
     </p>
     <a
