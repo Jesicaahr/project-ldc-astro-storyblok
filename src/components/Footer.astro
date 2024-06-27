@@ -13,21 +13,29 @@ const FooterSocmed: FooterSocmedLinkStoryblok[] =
   data?.story?.content?.footerSocmed;
 ---
 
-<header class="w-full h-24 bg-[#f7f6fd]">
-  <div class="container h-full mx-auto flex items-center justify-between">
-    <nav>
-      <ul class="flex space-x-8 text-lg font-bold">
-        {
-          FooterSocmed.map((menu: FooterSocmedLinkStoryblok) => (
-            <li>
-              <a href={`${menu.link.cached_url}`} class="hover:text-[#50b0ae]">
-                <Icon class="size-5 text-indigo-900" name={menu.icon.icon} />{" "}
-                {menu.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+<footer class="bg-primary-darker text-white">
+  <div class="container px-5 py-4">
+    <div class="flex flex-col items-center gap-4">
+      <nav>
+        <ul class="flex gap-4">
+          {
+            FooterSocmed.map((menu: FooterSocmedLinkStoryblok) => (
+              <li>
+                <a
+                  href={`${menu.link.cached_url}`}
+                  class="flex size-11 items-center justify-center rounded-full bg-neutral-50 text-primary-darker"
+                >
+                  <Icon class="size-7" name={menu.icon.icon} />
+                  <span class="sr-only">{menu.title}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <span class="text-sm">
+        Copyright {new Date().getFullYear()} &copy; Long Distance Creator
+      </span>
+    </div>
   </div>
-</header>
+</footer>
