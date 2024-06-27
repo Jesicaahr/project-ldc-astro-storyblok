@@ -1,7 +1,9 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
 import { Icon } from "astro-iconify";
+import { Image } from "astro:assets";
 import type { FooterSocmedLinkStoryblok } from "@base/component-types-sb";
+import FooterLogo from "@public/logo-ldc-white-small.svg";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/config", {
@@ -13,29 +15,82 @@ const FooterSocmed: FooterSocmedLinkStoryblok[] =
   data?.story?.content?.footerSocmed;
 ---
 
-<footer class="bg-primary-darker text-white">
-  <div class="container px-5 py-4">
-    <div class="flex flex-col items-center gap-4">
-      <nav>
-        <ul class="flex gap-4">
-          {
-            FooterSocmed.map((menu: FooterSocmedLinkStoryblok) => (
-              <li>
-                <a
-                  href={`${menu.link.cached_url}`}
-                  class="flex size-11 items-center justify-center rounded-full bg-neutral-50 text-primary-darker"
-                >
-                  <Icon class="size-7" name={menu.icon.icon} />
-                  <span class="sr-only">{menu.title}</span>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-      <span class="text-sm">
-        Copyright {new Date().getFullYear()} &copy; Long Distance Creator
-      </span>
+<footer>
+  <div class="font-display bg-primary text-white">
+    <div class="container px-5 pb-8 pt-10">
+      <h2 class="sr-only">Footer Section</h2>
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-5">
+          <Image src={FooterLogo} alt="LDC Logo White" class="" />
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-1">
+              <h3 class="text-lg font-bold">Head Office</h3>
+              <p>
+                PT. Laskar Dua Cakrawala <br />
+                Dusun Gumukrejo RT/RW 001/008 Kel Karangsono Kec Bangsalsari - Jember
+                Jawa Timur <br />
+                Telp. +62 812 4923 3932 <br />
+                Email sesa@infoldc.com
+              </p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-lg font-bold">On-Site Office</h3>
+              <p>Greenland Residence, Gresik, Jawa Timur</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="text-lg font-bold">Representative Office</h3>
+              <p>Northwest Park NA2 no 9, Citraland Utara, Surabaya</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <h3 class="text-lg font-bold">LET'S KEEP IN TOUCH!</h3>
+          <form class="flex flex-col gap-5">
+            <div>
+              <label for="email-newsletter">Sign Up for our newsletter</label>
+              <input
+                name="email-newsletter"
+                id="email-newsletter"
+                type="text"
+                placeholder="Email Address"
+                class="w-full rounded-lg border px-4 py-3"
+              />
+            </div>
+            <button
+              type="submit"
+              class="bg-secondary rounded-lg px-5 py-2 text-lg font-bold"
+            >
+              Join News Letter
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-primary-darker text-white">
+    <div class="container px-5 py-4">
+      <div class="flex flex-col items-center gap-4">
+        <nav>
+          <ul class="flex gap-4">
+            {
+              FooterSocmed.map((menu: FooterSocmedLinkStoryblok) => (
+                <li>
+                  <a
+                    href={`${menu.link.cached_url}`}
+                    class="flex size-11 items-center justify-center rounded-full bg-neutral-50 text-primary-darker"
+                  >
+                    <Icon class="size-7" name={menu.icon.icon} />
+                    <span class="sr-only">{menu.title}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <span class="text-sm">
+          Copyright {new Date().getFullYear()} &copy; Long Distance Creator
+        </span>
+      </div>
     </div>
   </div>
 </footer>
