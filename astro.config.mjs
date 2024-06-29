@@ -3,6 +3,7 @@ import storyblok from '@storyblok/astro'
 import { loadEnv } from 'vite'
 import tailwind from '@astrojs/tailwind'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import SectionSeeService from './src/storyblok/SectionSeeService.astro'
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 // https://astro.build/config
@@ -26,6 +27,7 @@ export default defineConfig({
         'popular-articles' : 'storyblok/PopularArticles',
         'all-articles' : 'storyblok/AllArticles',
         article: 'storyblok/Article',
+        SectionSeeService: 'storyblok/SectionSeeService',
       },
     }),
     tailwind(),
