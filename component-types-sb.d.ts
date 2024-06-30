@@ -135,7 +135,9 @@ export interface GridStoryblok {
     | MenuLinkStoryblok
     | PageStoryblok
     | PopularArticlesStoryblok
+    | SectionSeeServiceStoryblok
     | TeaserStoryblok
+    | TextsWithButtonStoryblok
     | TrustByStoryblok
   )[];
   component: "grid";
@@ -173,7 +175,9 @@ export interface PageStoryblok {
     | MenuLinkStoryblok
     | PageStoryblok
     | PopularArticlesStoryblok
+    | SectionSeeServiceStoryblok
     | TeaserStoryblok
+    | TextsWithButtonStoryblok
     | TrustByStoryblok
   )[];
   component: "page";
@@ -189,9 +193,28 @@ export interface PopularArticlesStoryblok {
   [k: string]: any;
 }
 
+export interface SectionSeeServiceStoryblok {
+  bannerImage?: AssetStoryblok;
+  textsWithButton: TextsWithButtonStoryblok[];
+  component: "sectionSeeService";
+  _uid: string;
+  [k: string]: any;
+}
+
 export interface TeaserStoryblok {
   headline?: string;
   component: "teaser";
+  _uid: string;
+  [k: string]: any;
+}
+
+export interface TextsWithButtonStoryblok {
+  headline?: string;
+  subheadline?: string;
+  primaryText?: string;
+  textButton?: string;
+  linkButton?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  component: "textsWithButton";
   _uid: string;
   [k: string]: any;
 }
