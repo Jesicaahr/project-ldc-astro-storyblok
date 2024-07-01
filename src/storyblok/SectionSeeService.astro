@@ -8,7 +8,7 @@ const { blok } = Astro.props;
 let textWithButton: TextsWithButtonStoryblok[] = blok.textsWithButton[0];
 ---
 
-<section {...storyblokEditable(blok)} class="bg-soft-blue items-center flex container rounded-[30px] py-10 px-12 gap-12 my-12">
+<section {...storyblokEditable(blok)} class="bg-soft-blue items-center flex container rounded-[30px] py-10 px-12 gap-12 my-[75px]">
     <Image
     src={blok.bannerImage.filename}
     alt={blok.bannerImage.alt}

@@ -33,7 +33,8 @@ export default defineConfig({
       "popular-articles": "storyblok/PopularArticles",
       "all-articles": "storyblok/AllArticles",
       article: "storyblok/Article",
-      SectionSeeService: "storyblok/SectionSeeService"
+      SectionSeeService: "storyblok/SectionSeeService",
+      SectionOurTeam: "storyblok/SectionOurTeam"
     }
   }), tailwind(), db()],
   vite: {

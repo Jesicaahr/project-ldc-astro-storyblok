@@ -7,7 +7,7 @@ const { blok } = Astro.props;
 let articles: ArticleStoryblok[] = blok.articles;
 ---
 
-<section class="my-12 container flex flex-col items-center" {...storyblokEditable(blok)}>
+<section class="my-[75px] container flex flex-col items-center" {...storyblokEditable(blok)}>
   <h2 class="text-[50px] text-text-primary leading-tight w-[70%] font-sans font-semibold text-center mb-12">
     {blok.headline}
   </h2>
