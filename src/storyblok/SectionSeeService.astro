@@ -4,13 +4,13 @@ import { Image } from "astro:assets";
 const { blok } = Astro.props;
 ---
 
-<div {...storyblokEditable(blok)} class="bg-soft-blue items-center flex container rounded-[30px] py-10 px-12 gap-12 my-12">
+<section {...storyblokEditable(blok)} class="bg-soft-blue items-center flex container rounded-[30px] py-10 px-12 gap-12 my-12">
     <Image
     src={blok.bannerImage.filename}
     alt={blok.bannerImage.alt}
     width="200"
     height="150"
-    class=" w-[40%] h-auto object-cover"
+    class=" w-[40%] h-auto ratio-1 object-cover"
     />
     <div>
         <h3 class="text-[30px] text-text-primary font-display">
@@ -27,4 +27,4 @@ const { blok } = Astro.props;
         </button>
     </div>
 
-</div>
+</section>
