@@ -1,0 +1,19 @@
+---
+const { textsWithButton } = Astro.props;
+
+---
+
+<div>
+    <h3 class="text-[30px] text-text-primary font-display">
+        {textsWithButton[0].subheadline}
+    </h3>
+    <h2 class="text-[50px] leading-none mt-[10px] mb-[15px] text-text-primary font-bold font-sans">
+        {textsWithButton[0].headline}
+    </h2>
+    <p class="text-[21px] text-text-secondary font-display">
+        {textsWithButton[0].primaryText}
+    </p>
+    <button class="rounded-[50px] mt-[40px] bg-primary text-white px-5 py-2 text-lg">
+        {textsWithButton[0].textButton}
+    </button>
+</div>
