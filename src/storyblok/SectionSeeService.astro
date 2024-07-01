@@ -2,8 +2,10 @@
 import { storyblokEditable } from "@storyblok/astro";
 import { Image } from "astro:assets";
 import TextWithButton from "../components/TextWithButton.astro";
+import type { TextsWithButtonStoryblok } from "@base/component-types-sb";
+
 const { blok } = Astro.props;
-let textWithButton = blok.textsWithButton;
+let textWithButton: TextsWithButtonStoryblok[] = blok.textsWithButton[0];
 ---
 
 <section {...storyblokEditable(blok)} class="bg-soft-blue items-center flex container rounded-[30px] py-10 px-12 gap-12 my-12">
@@ -14,6 +16,6 @@ let textWithButton = blok.textsWithButton;
     height="150"
     class=" w-[40%] h-auto ratio-1 object-cover"
     />
-    <TextWithButton textsWithButton={textWithButton} />
+    <TextWithButton textWithButton={textWithButton} />
 
 </section>
